@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://thesecretlivesofdata.com/raft/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Raft</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href="./Raft_files/bootstrap-3.0.2.css" rel="stylesheet">
+	<link href="./Raft_files/tsld.css" rel="stylesheet">
+	<script src="./Raft_files/jquery-2.0.3.min.js.Download"></script>
+	<script src="./Raft_files/bootstrap-3.0.2.min.js.Download"></script>
+	<script src="./Raft_files/d3-3.3.9.min.js.Download"></script>
+	<script src="./Raft_files/playback.js.Download"></script>
+	<script src="./Raft_files/tsld.js.Download"></script>
+	<script>
+	    var require = {urlArgs: "t=" + (new Date()).getTime()};
+	</script>
+	<script data-main="scripts/index.js" src="./Raft_files/require-2.1.9.js.Download"></script>
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="index" src="./Raft_files/index.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="model/model" src="./Raft_files/model.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="layout/layout" src="./Raft_files/layout.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="frames/init" src="./Raft_files/init.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../../scripts/domReady/domReady-2.0.1" src="./Raft_files/domReady-2.0.1.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="layout/node_layout" src="./Raft_files/node_layout.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="layout/client_layout" src="./Raft_files/client_layout.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="layout/message_layout" src="./Raft_files/message_layout.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="layout/partition_layout" src="./Raft_files/partition_layout.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="frames/playground" src="./Raft_files/playground.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="frames/title" src="./Raft_files/title.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="frames/intro" src="./Raft_files/intro.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="frames/overview" src="./Raft_files/overview.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="frames/election" src="./Raft_files/election.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="frames/replication" src="./Raft_files/replication.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="frames/conclusion" src="./Raft_files/conclusion.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="model/controls" src="./Raft_files/controls.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="model/client" src="./Raft_files/client.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="model/message" src="./Raft_files/message.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="model/node" src="./Raft_files/node.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="model/partition" src="./Raft_files/partition.js.Download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="model/log_entry" src="./Raft_files/log_entry.js.Download"></script></head>
+
+<body style="">
+	<header id="header">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<div class="dropdown">
+					<button type="button" class="navbar-toggle" data-toggle="dropdown">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<ul class="dropdown-menu pull-right" role="menu"><li role="presentation"><a role="menuitem" tabindex="-1" href="http://thesecretlivesofdata.com/raft/#home">Home</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://thesecretlivesofdata.com/raft/#intro">What is Distributed Consensus?</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://thesecretlivesofdata.com/raft/#overview">Protocol Overview</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://thesecretlivesofdata.com/raft/#election">Leader Election</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://thesecretlivesofdata.com/raft/#replication">Log Replication</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="http://thesecretlivesofdata.com/raft/#conclusion">Other Resources</a></li></ul>
+				</div>
+				<a class="navbar-brand" href="http://thesecretlivesofdata.com/">
+					The Secret Lives of Data
+				</a>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		<div id="chart">
+		<svg class="tsld" width="720" height="640"><g class="tsld" transform="translate(5,5)"><g></g><g></g><g></g><g></g></g></svg><div class="tsld title-container container" style="display: block; visibility: visible;"><div class="title" style="top: 238px;"><h1 style="visibility:visible">Raft</h1><h2 style="visibility:visible">Understandable Distributed Consensus</h2><br><div class="btn-group"><button type="button" style="visibility: visible; display: block;" class="btn btn-default resume" alt="Continue to next frame">Continue <span class="glyphicon glyphicon-chevron-right"></span></button></div></div></div><div class="tsld subtitle-container container" style="display: block; visibility: visible;"><div class="subtitle"><p style="visibility:visible"><em><a href="https://github.com/benbjohnson/thesecretlivesofdata/issues/1" target="_blank">Please note: this is a working draft. Click here to provide feedback.</a></em></p></div></div></div>
+	</div>
+
+
+</body></html>

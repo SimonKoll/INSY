@@ -1,0 +1,75 @@
+-- e) Ermitteln Sie Name und Initialen aller Spieler die mind. 2 Strafen 
+--    mit einem Betrag gr��er 40 erhalten haben.
+
+select name, initials
+from players
+where playerno in (
+  select playerno 
+  from penalties
+  where amount > 40
+  group by playerno
+  having count(*) >= 2
+);
+
+-- f) Ermitteln Sie Name und Initialen aller Spieler deren Summe an 
+--    Strafzahlen am h�chsten sind.
+
+select name, initials
+from players
+where playerno IN (
+  select playerno
+  from penalties
+  group by playerno
+  having sum(amount) >= ALL (
+    select sum(amount)
+    from penalties
+    group by playerno
+  )
+)
+;
+
+-- g) Ermitteln Sie die Nummer der Spieler deren Summe an Strafzahlungen 
+-- gleich hoch ist wie die Summe der Strafzahlungen des Spielers 
+-- mit der Nummer 6.
+
+  select playerno
+  from penalties
+  -- where playerno<>6
+  group by playerno
+  having sum(amount) = (
+    select sum(amount)
+    from penalties
+    where playerno = 6
+  );
+    
+
+-- h) Ermitteln Sie f�r alle Teams, die von einem Kapit�n aus Stratford 
+--    angef�hrt werden, die TeamNo und die Anzahl an Spieler aus, 
+--    die zumindest 1 Match f�r das Team gewonnen haben.
+
+select teamno, count(distinct playerno)
+from matches
+where teamno IN (
+  select teamno
+    from teams
+   where playerno IN (
+     select playerno
+       from players
+      where town='Stratford'
+   )
+)
+AND WON > 0 -- LOST
+group by teamno;
+
+-- Alternative
+
+select teamno, (select count(distinct playerno)
+                  from matches
+                 where won>lost
+                   and t.teamno = teamno) "Anzahl"
+from teams t
+where playerno IN (
+  select playerno
+    from players
+   where town='Stratford'
+);
